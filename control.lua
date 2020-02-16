@@ -3,9 +3,9 @@ require("mod-gui")
 function doit(player)
 	local count = 0
 	for _, surface in pairs (game.surfaces) do
-		local bots = surface.find_entities_filtered{name = {"logistic-robot","construction-robot"}, player.force.name }
+		local bots = surface.find_entities_filtered{type = {"logistic-robot","construction-robot"}, player.force.name }
 		for _, bot in pairs (bots) do
-			if bot.energy < 10000 then
+			if bot.energy < (game.entity_prototypes[bot.name]["energy_per_move"] * 2) then
 				bot.die( bot.force )
 				count = count + 1
 			end
