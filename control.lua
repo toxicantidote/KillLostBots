@@ -1,4 +1,4 @@
-require("mod-gui")
+local mod_gui = require("mod-gui")
 
 function doit(player)
 	local count = 0
